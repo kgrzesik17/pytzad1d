@@ -1,5 +1,6 @@
 import operacje_na_plikach as files
 import generatory_liczb as numbers
+import analiza_tekstowa as analyze
 
 def onp_test():
     files.create('plik', 'txt', 'siala baba mak ')
@@ -23,4 +24,14 @@ def gl_test():
     print(f'The first 4 perfect numbers are: {numbers.perfect(4)}')
     numbers.perfect(5)
 
+
+def at_test():
+    text = "siala baba mak. nie wiedziala jak."
+
+    print(f"Word count for given text: {analyze.word_count(text)}")
+    print(f"Sentence count for given text: {analyze.sentence_count(text)}")
+    print(f"Each letter count for given text: {analyze.letter_count(text)}")
+
+onp_test()
 gl_test()
+at_test()
