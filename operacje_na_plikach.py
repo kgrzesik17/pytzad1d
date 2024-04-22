@@ -90,3 +90,34 @@ def edit(name:str, content:str, overwrite=False):
     except:
         print("Such file doesn't exist.")
         return False
+    
+
+def delete(name:str, skip=False):
+    """
+    This module lets you delete a file or a folder.
+
+
+    Arguments:
+    name - name of a file you want to delete.
+    skip - True if you want to skip the prompt asking if you are sure.
+
+    Output:
+    boolean value - True if succeeded, False if failed.
+    """
+
+    try:
+        if skip == False:
+            deletion = input(f"Are you sure you want to delte '{name}' file? Type \"Yes\" to proceed. ")
+            deletion = deletion.lower()
+            
+            if deletion == "yes":
+                os.remove(name)
+                return True
+            else:
+                return False
+        else:
+            os.remove(name)
+            return True
+    except:
+        print("Such file or folder doesn't exist.")
+        return False
