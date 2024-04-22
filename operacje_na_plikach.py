@@ -1,6 +1,6 @@
 import os
 
-def create(name, type, content=''):
+def create(name:str, type:str, content=''):
     '''
     This module lets you create a folder or a file of a certain type.
 
