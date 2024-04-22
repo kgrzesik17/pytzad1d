@@ -52,8 +52,41 @@ def read(name:str, doPrint=False):
         if doPrint:
             print(file)
 
+        file.close()
         return file
 
+    except:
+        print("Such file doesn't exist.")
+        file.close()
+        return False
+    
+
+def edit(name:str, content:str, overwrite=False):
+    '''
+    This module lets you edit an existing file.
+
+    Arguments:
+    name - name of a file you want to edit.
+    content - file's new content/content you want to add to the existing file.
+    overwrite - True if you want to overwrite the existing content.
+
+    Output:
+    boolean value - True if succeeded, False if failed.
+    '''
+
+    try:
+        if overwrite:
+            file = open(name, 'xw')
+            file.write(content)
+            file.close()
+            return True
+        
+        else:
+            file = open(name, 'xa')
+            file.write(content)
+            file.close()
+            return True
+        
     except:
         print("Such file doesn't exist.")
         return False
