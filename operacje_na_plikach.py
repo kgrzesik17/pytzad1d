@@ -14,8 +14,7 @@ def create(name, type, content=''):
         os.mkdir(name)
 
     else:
-        file = open(f'name\.type', 'a')
+        fullname = name + '.' + type
+        file = open(fullname, 'x')
         file.write(content)
         file.close()
-
-create('albinos', 'folder')
