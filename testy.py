@@ -1,4 +1,5 @@
 import operacje_na_plikach as files
+import generatory_liczb as numbers
 
 def onp_test():
     files.create('plik', 'txt', 'siala baba mak ')
@@ -15,4 +16,11 @@ def onp_test():
     files.delete('plik.txt', True)
     files.delete('plik1.txt')
 
-onp_test()
+
+def gl_test():
+    print(f'The first 10 fibonacci numbers are: {numbers.fibonacci(10)}')
+    print(f'The first 10 prime numbers are: {numbers.prime(10)}')
+    print(f'The first 4 perfect numbers are: {numbers.perfect(4)}')
+    numbers.perfect(5)
+
+gl_test()
