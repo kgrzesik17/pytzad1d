@@ -10,17 +10,24 @@ def create(name, type, content=''):
     content (optional) -  only if type != folder. Lets you write content for the file.
 
     Output:
-    bool - 1 if a file was created, 0 if a folder was created.
-    
+    integer - 2 if a file was created, 1 if a folder was created, 0 if module was unable to create such file/folder.
     '''
 
     if type == 'folder'.lower():
-        os.mkdir(name)
-        return 0
+        try:
+            os.mkdir(name)
+            return 1
+        except:
+            print("Such folder already exists")
+            return 0
 
     else:
-        fullname = name + '.' + type
-        file = open(fullname, 'x')
-        file.write(content)
-        file.close()
-        return 1
+        try:
+            fullname = name + '.' + type
+            file = open(fullname, 'x')
+            file.write(content)
+            file.close()
+            return 2
+        except:
+            print("Such file already exists.")
+            return 0
