@@ -7,7 +7,7 @@ def onp_test():
     files.edit('plik.txt', 'nie wiedziala jak ', True)
     files.edit('plik1.txt', 'nie wiedziala jak ')
 
-    print('Odczyt pierwszego pliku: ',end="")
+    print('Odczyt pierwszego pliku: ', end="")
     files.read('plik.txt', True)
 
     print(f'Odczyt drugiego pliku: {files.read("plik1.txt")}')
