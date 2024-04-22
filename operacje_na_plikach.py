@@ -18,7 +18,7 @@ def create(name:str, type:str, content=''):
             os.mkdir(name)
             return 1
         except:
-            print("Such folder already exists")
+            print("Such folder already exists.")
             return 0
 
     else:
@@ -29,7 +29,7 @@ def create(name:str, type:str, content=''):
             file.close()
             return 2
         except:
-            
+            print("Such file already exists.")
             return 0
         
 def read(name:str, doPrint=False):
@@ -52,12 +52,10 @@ def read(name:str, doPrint=False):
         if doPrint:
             print(file)
 
-        file.close()
         return file
 
     except:
         print("Such file doesn't exist.")
-        file.close()
         return False
     
 
@@ -74,22 +72,17 @@ def edit(name:str, content:str, overwrite=False):
     boolean value - True if succeeded, False if failed.
     '''
 
-    try:
-        if overwrite:
-            file = open(name, 'xw')
-            file.write(content)
-            file.close()
-            return True
+    if overwrite:
+        file = open(name, 'w')
+        file.write(content)
+        file.close()
+        return True
         
-        else:
-            file = open(name, 'xa')
-            file.write(content)
-            file.close()
-            return True
-        
-    except:
-        print("Such file doesn't exist.")
-        return False
+    else:
+        file = open(name, 'a')
+        file.write(content)
+        file.close()
+        return True
     
 
 def delete(name:str, skip=False):
