@@ -29,5 +29,31 @@ def create(name:str, type:str, content=''):
             file.close()
             return 2
         except:
-            print("Such file already exists.")
+            
             return 0
+        
+def read(name:str, doPrint=False):
+    '''
+    This module lets you read an existing file.
+
+    Arguments:
+    name - name of a  file you want to read.
+    doPrint (optional) set to True if you want to print the read file.
+
+    Output:
+    string if succeeded - read file.
+    boolean value if failed - False.
+    '''
+
+    try:
+        file = open(name, 'r')
+        file = file.readlines()
+
+        if doPrint:
+            print(file)
+
+        return file
+
+    except:
+        print("Such file doesn't exist.")
+        return False
